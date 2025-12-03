@@ -6,13 +6,11 @@ const App = () => {
   const [sum, setSum] = useState(0);
   const [currentValue, setCurrentValue] = useState("");
 
-  // Asynchronous sum calculation
   useEffect(() => {
     let handle = setTimeout(() => {
-      const total = numbers.reduce((acc, num) => acc + num, 0);
+      const total = numbers.reduce((acc, n) => acc + n, 0);
       setSum(total);
-    }, 0); // async so UI doesn't freeze
-
+    }, 0);
     return () => clearTimeout(handle);
   }, [numbers]);
 
@@ -29,7 +27,7 @@ const App = () => {
   };
 
   return (
-    <div id="main" style={{ textAlign: "center", marginTop: "50px" }}>
+    <div id="main" style={{ textAlign: "center", marginTop: "40px" }}>
       <h1>Sum Calculator</h1>
 
       <input
@@ -40,7 +38,7 @@ const App = () => {
         style={{ padding: "5px", width: "200px", fontSize: "16px" }}
       />
 
-      <h3>Sum: {sum}</h3>
+      <p>Sum: {sum}</p>
     </div>
   );
 };
